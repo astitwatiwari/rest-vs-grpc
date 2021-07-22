@@ -1,0 +1,16 @@
+syntax = "proto3";
+option java_multiple_files = true;
+package com.oyo.grpc;
+message PingRequest {
+    string ping = 1;
+}
+
+message PongResponse {
+    repeated int32 items = 1;
+}
+
+service PingPongService {
+    rpc ping(PingRequest) returns (PongResponse);
+    rpc pingServStream(PingRequest) returns (stream PongResponse);
+}
+
